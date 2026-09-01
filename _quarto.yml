@@ -1,0 +1,7 @@
+project:
+  type: website
+  title: "iaea-2026"
+  render:
+    - index.qmd
+  resources:
+    - grid-worms/*
