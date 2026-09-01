@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "index.html#who-am-i",
+    "href": "index.html#who-am-i",
+    "title": "Open and transparent scoring with measr",
+    "section": "Who am I?",
+    "text": "Who am I?\n\n\nW. Jake Thompson, Ph.D.\n\nAssistant Director of Psychometrics\n\n\nATLAS | University of Kansas\n\n\nResearch: Applications of diagnostic psychometric models\n\nLead psychometrician and Co-PI for the Dynamic Learnings Maps assessments\nPI for an IES-funded project to develop software for diagnostic models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n   @wjakethompson   @wjakethompson.com"
+  },
+  {
+    "objectID": "index.html#diagnostic-measurement",
+    "href": "index.html#diagnostic-measurement",
+    "title": "Open and transparent scoring with measr",
+    "section": "Diagnostic measurement",
+    "text": "Diagnostic measurement\n\nDesigned to be multidimensional\nNo continuum of student achievement\nCategorical constructs\n\nUsually binary (e.g., master/nonmaster, proficient/not proficient)\n\n\nSeveral different names in the literature\n\nDiagnostic classification models (DCMs)\nCognitive diagnostic models (CDMs)\nSkills assessment models\nLatent response models\nRestricted latent class models"
+  },
+  {
+    "objectID": "index.html#from-traditional-to-diagnostic-assessment",
+    "href": "index.html#from-traditional-to-diagnostic-assessment",
+    "title": "Open and transparent scoring with measr",
+    "section": "From traditional to diagnostic assessment",
+    "text": "From traditional to diagnostic assessment\n\n\n\nRather than measuring a single trait, we can break the construct into a set of skills or attributes\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttributes are categorical, often dichotomous (e.g., proficient vs. non-proficient)"
+  },
+  {
+    "objectID": "index.html#utility-of-diagnostic-results",
+    "href": "index.html#utility-of-diagnostic-results",
+    "title": "Open and transparent scoring with measr",
+    "section": "Utility of diagnostic results",
+    "text": "Utility of diagnostic results\n\nAttribute-level feedback about student learning is more actionable for instructional decision-making (Thompson & Clark, 2024)\nHowever, the uniqueness and complexity of DCMs can create a “black box” for practitioners and stakeholders"
+  },
+  {
+    "objectID": "index.html#what-is-measr",
+    "href": "index.html#what-is-measr",
+    "title": "Open and transparent scoring with measr",
+    "section": "What is measr?",
+    "text": "What is measr?\n\nR package that automates the creation of Stan scripts for DCMs\nWraps rstan or cmdstanr to estimate the models\n\nProvides transparency in how diagnostic results are reported\n\nProbability-based score reporting\nComprehensive and intuitive reliability indices\nAuditable analysis pipeline"
+  },
+  {
+    "objectID": "index.html#data-for-example",
+    "href": "index.html#data-for-example",
+    "title": "Open and transparent scoring with measr",
+    "section": "Data for example",
+    "text": "Data for example\n\nExamination for the certificate of proficiency in English (ECPE; Templin & Hoffman, 2013)\n\n28 items measuring 3 total attributes\n2,922 respondents\n\n\n3 attributes\n\nMorphosyntactic rules\nCohesive rules\nLexical rules"
+  },
+  {
+    "objectID": "index.html#ecpe-data",
+    "href": "index.html#ecpe-data",
+    "title": "Open and transparent scoring with measr",
+    "section": "ECPE data",
+    "text": "ECPE data\n\nlibrary(dcmdata)\n\necpe_data\n#&gt; # A tibble: 2,922 × 29\n#&gt;    resp_id    E1    E2    E3    E4    E5    E6    E7    E8    E9   E10   E11\n#&gt;      &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n#&gt;  1       1     1     1     1     0     1     1     1     1     1     1     1\n#&gt;  2       2     1     1     1     1     1     1     1     1     1     1     1\n#&gt;  3       3     1     1     1     1     1     1     0     1     1     1     1\n#&gt;  4       4     1     1     1     1     1     1     1     1     1     1     1\n#&gt;  5       5     1     1     1     1     1     1     1     1     1     1     1\n#&gt;  6       6     1     1     1     1     1     1     1     1     1     1     1\n#&gt;  7       7     1     1     1     1     1     1     1     1     1     1     1\n#&gt;  8       8     0     1     1     1     1     1     0     1     1     1     0\n#&gt;  9       9     1     1     1     1     1     1     1     1     1     1     1\n#&gt; 10      10     1     1     1     1     0     0     1     1     1     1     1\n#&gt; # ℹ 2,912 more rows\n#&gt; # ℹ 17 more variables: E12 &lt;int&gt;, E13 &lt;int&gt;, E14 &lt;int&gt;, E15 &lt;int&gt;, E16 &lt;int&gt;,\n#&gt; #   E17 &lt;int&gt;, E18 &lt;int&gt;, E19 &lt;int&gt;, E20 &lt;int&gt;, E21 &lt;int&gt;, E22 &lt;int&gt;,\n#&gt; #   E23 &lt;int&gt;, E24 &lt;int&gt;, E25 &lt;int&gt;, E26 &lt;int&gt;, E27 &lt;int&gt;, E28 &lt;int&gt;"
+  },
+  {
+    "objectID": "index.html#ecpe-q-matrix",
+    "href": "index.html#ecpe-q-matrix",
+    "title": "Open and transparent scoring with measr",
+    "section": "ECPE Q-matrix",
+    "text": "ECPE Q-matrix\n\necpe_qmatrix\n#&gt; # A tibble: 28 × 4\n#&gt;    item_id morphosyntactic cohesive lexical\n#&gt;    &lt;chr&gt;             &lt;int&gt;    &lt;int&gt;   &lt;int&gt;\n#&gt;  1 E1                    1        1       0\n#&gt;  2 E2                    0        1       0\n#&gt;  3 E3                    1        0       1\n#&gt;  4 E4                    0        0       1\n#&gt;  5 E5                    0        0       1\n#&gt;  6 E6                    0        0       1\n#&gt;  7 E7                    1        0       1\n#&gt;  8 E8                    0        1       0\n#&gt;  9 E9                    0        0       1\n#&gt; 10 E10                   1        0       0\n#&gt; # ℹ 18 more rows"
+  },
+  {
+    "objectID": "index.html#model-estimation-with-measr",
+    "href": "index.html#model-estimation-with-measr",
+    "title": "Open and transparent scoring with measr",
+    "section": "Model estimation with measr",
+    "text": "Model estimation with measr\n\n\nSpecification\nEstimation\n\n\n\nSpecify a DCM with dcm_specify()\n\necpe_spec &lt;- dcm_specify(\n  qmatrix = ecpe_qmatrix,\n  identifier = \"item_id\"\n)\n\n\n\nEstimate a DCM with dcm_estimate()\n\necpe_lcdm &lt;- dcm_estimate(\n  dcm_spec = ecpe_spec,\n  data = ecpe_data,\n  identifier = \"resp_id\"\n)"
+  },
+  {
+    "objectID": "index.html#reporing-results-with-dcms",
+    "href": "index.html#reporing-results-with-dcms",
+    "title": "Open and transparent scoring with measr",
+    "section": "Reporing results with DCMs",
+    "text": "Reporing results with DCMs\n\n\n\nResults are typically reported as classifications on each of the assessed attributes\nNo scale score or ability continuum\nEach repspondent receives a profile of mastered skills\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrespondent\nmorphosyntactic\ncohesive\nlexical\n\n\n\n327\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\n1823\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\n815\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n308\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\n134\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\n1250\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n2459\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n345\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n922\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n1715\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\n1788\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n642\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n1622\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\n300\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n2710\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\n1196\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\n488\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n2778\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n1379\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n665\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nCheck"
+  },
+  {
+    "objectID": "index.html#probability-based-score-reporting",
+    "href": "index.html#probability-based-score-reporting",
+    "title": "Open and transparent scoring with measr",
+    "section": "Probability-based score reporting",
+    "text": "Probability-based score reporting\n\n\n\nmeasr supports reporting the probability of mastery\nCan be used to communicate confidence in classifications (Bradshaw & Levy, 2019)\n\n\n\n\n\nmeasr_extract(ecpe_lcdm, \"attribute_prob\")\n#&gt; # A tibble: 2,922 × 4\n#&gt;    resp_id morphosyntactic cohesive lexical\n#&gt;    &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;\n#&gt;  1 1               0.997      0.967  1.000 \n#&gt;  2 2               0.995      0.926  1.000 \n#&gt;  3 3               0.984      0.991  1.000 \n#&gt;  4 4               0.998      0.993  1.000 \n#&gt;  5 5               0.989      0.984  0.962 \n#&gt;  6 6               0.993      0.992  1.000 \n#&gt;  7 7               0.993      0.992  1.000 \n#&gt;  8 8               0.00478    0.488  0.967 \n#&gt;  9 9               0.954      0.988  0.999 \n#&gt; 10 10              0.659      0.112  0.0911\n#&gt; # ℹ 2,912 more rows"
+  },
+  {
+    "objectID": "index.html#acknowledgements",
+    "href": "index.html#acknowledgements",
+    "title": "Open and transparent scoring with measr",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThe research reported here was supported by the Institute of Education Sciences, U.S. Department of Education, through Grants R305D210045 and R305D240032 to the University of Kansas Center for Research, Inc., ATLAS. The opinions expressed are those of the authors and do not represent the views of the Institute or the U.S. Department of Education."
+  }
+]
