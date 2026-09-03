@@ -422,6 +422,24 @@ measr_extract(ecpe_lcdm, "attribute_prob")
 :::
 :::
 
+## Evaluating classifications
+
+* Rather than individual attribute classifications, we can evaluate across the population of respondents ([Sinharay & Johnson, 2019](https://doi.org/10.1007/978-3-030-05584-4_17))
+  * Accuracy: Probability the estimated classification is "correct"
+  * Consistency: Probability that two parallel forms result in the same classification (i.e., test-retest)
+
+<br>
+
+```{r}
+#| label: ecpe-reliability
+#| echo: true
+
+measr_extract(ecpe_lcdm, "classification_reliability")
+```
+
+
+
+
 # Learn more: [**r-dcm.org**](https://r-dcm.org) {.thank-you data-menu-title="Get in touch" background-color="#023047"}
 
 
@@ -438,7 +456,6 @@ Slides
 #| out-width: 50%
 #| fig-alt: >
 #|   QR code linking to https://iaea2026.wjakethompson.com
-#| eval: false
 
 include_graphics("figure/slides-qr.png")
 ```
