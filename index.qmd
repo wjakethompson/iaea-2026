@@ -2,28 +2,7 @@
 title: Open and transparent scoring with measr
 subtitle: An R package for diagnostic classification models
 author: W. Jake Thompson, Ph.D.
-format:
-  measr-slides-revealjs:
-    progress: false
-    code-link: true
-preload-iframes: true
-code-annotations: select
-engine: knitr
-execute: 
-  echo: false
-  message: true
-  warning: true
-knitr:
-  opts_chunk: 
-    digits: 3
-    comment: "#>"
-    fig-align: "center"
-    fig-width: 7
-    fig-asp: 0.618
-    out-width: 90%
-    collapse: true
-revealjs-plugins:
-  - tabset
+format: rdcm-slides-revealjs
 ---
 
 ## Who am I?
@@ -225,7 +204,7 @@ tibble(
 
 * However, the uniqueness and complexity of DCMs can create a "black box" for practitioners and stakeholders
 
-## {.empty data-menu-title="measr" background-color="#023047" background-iframe="grid-worms/index.html"}
+## {.empty-navy data-menu-title="measr" background-color="#023047" background-iframe="grid-worms/index.html"}
 
 ```{r}
 #| label: big-image
@@ -334,7 +313,7 @@ ecpe_lcdm <- dcm_estimate(
 ## Reporing results with DCMs
 
 :::{.columns}
-:::{.column width="50%"}
+:::{.column width="48%"}
 * Results are typically reported as classifications on each of the assessed attributes
 
 * No scale score or ability continuum
@@ -342,7 +321,10 @@ ecpe_lcdm <- dcm_estimate(
 * Each repspondent receives a profile of mastered skills
 :::
 
-:::{.column width="50%"}
+:::{.column width="4%"}
+:::
+
+:::{.column width="48%"}
 ```{r}
 #| label: dcm-classifications
 #| echo: false
@@ -389,8 +371,8 @@ ecpe_profiles |>
   cols_align("center", -resp_id) |>
   gt_theme_measr() |>
   tab_options(
-    table.font.size = 24,
-    container.height = px(450),
+    table.font.size = 32,
+    container.height = px(600),
     container.overflow.y = TRUE
   )
 ```
@@ -422,13 +404,10 @@ measr_extract(ecpe_lcdm, "attribute_prob")
 :::
 :::
 
-# Learn more: [**r-dcm.org**](https://r-dcm.org) {.thank-you data-menu-title="Get in touch" background-color="#023047"}
-
+# Learn more:<br>[**r-dcm.org**](https://r-dcm.org) {.closing data-menu-title="Get in touch"}
 
 :::{.columns .v-center-container}
-
-:::{.column .image width="60%"}
-
+:::{.column width="60%"}
 :::{.center}
 Slides
 :::
@@ -445,27 +424,15 @@ include_graphics("figure/slides-qr.png")
 
 :::
 
-:::{.column width="40%"}
-
-:::{.thank-you-subtitle}
-
-:::{.small}
-
-<br>
-
+:::{.column .end-links width="40%"}
 {{< iconify fa6-solid globe >}} \ [wjakethompson.com](https://wjakethompson.com)  
 {{< iconify fa6-solid envelope >}} \ [wjakethompson@ku.edu](mailto:wjakethompson@ku.edu)  
-{{< iconify fa6-brands orcid >}} \ [0000-0001-7339-0300](https://orcid.org/0000-0001-7339-0300)  
 {{< iconify fa6-brands linkedin >}} \ [in/wjakethompson](https://linkedin.com/in/wjakethompson)  
 {{< iconify fa6-brands github >}} \ [@wjakethompson](https://github.com/wjakethompson)  
-{{< iconify fa6-brands bluesky >}} \ [@wjakethompson.com](https://bsky.app/profile/wjakethompson.com)  
 {{< iconify fa6-brands mastodon >}} \ [@wjakethompson@fosstodon.org](https://fosstodon.org/@wjakethompson)  
+{{< iconify fa6-brands bluesky >}} \ [@wjakethompson.com](https://bsky.app/profile/wjakethompson.com)  
 {{< iconify fa6-brands threads >}} \ [@wjakethompson](https://www.threads.net/@wjakethompson)  
 {{< iconify fa6-brands x-twitter >}} \ [@wjakethompson](https://twitter.com/wjakethompson)  
-
-:::
-
-:::
 
 :::
 
