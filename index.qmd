@@ -407,6 +407,39 @@ measr_extract(ecpe_lcdm, "attribute_prob")
 :::
 :::
 
+## Evaluating classifications
+
+* Rather than individual attribute classifications, we can evaluate across the population of respondents ([Sinharay & Johnson, 2019](https://doi.org/10.1007/978-3-030-05584-4_17))
+  * Accuracy: Probability the estimated classification is "correct"
+  * Consistency: Probability that two parallel forms result in the same classification (i.e., test-retest)
+
+<br>
+
+```{r}
+#| label: ecpe-reliability
+#| echo: true
+
+measr_extract(ecpe_lcdm, "classification_reliability")
+```
+
+## Evaluating probabilities
+
+* We can also evaluate the mastery probabilities across respondents
+  * Informational: The proportion of uncertainty in an examinees mastery status that is eliminated by observing their item responses
+
+<br>
+
+```{r}
+#| label: ecpe-prob-reli
+#| echo: true
+
+measr_extract(ecpe_lcdm, "probability_reliability")
+```
+
+## Evaluating scoring pipelines
+
+* Scoring algorithms are often a "black box"
+
 # Learn more:<br>[**r-dcm.org**](https://r-dcm.org) {.closing data-menu-title="Get in touch"}
 
 :::{.columns .v-center-container}
@@ -420,7 +453,6 @@ Slides
 #| out-width: 50%
 #| fig-alt: >
 #|   QR code linking to https://iaea2026.wjakethompson.com
-#| eval: false
 
 include_graphics("figure/slides-qr.png")
 ```
