@@ -2,10 +2,13 @@
 title: Open and transparent scoring with measr
 subtitle: An R package for diagnostic classification models
 author: W. Jake Thompson, Ph.D.
+date: 2026-10-01
 format: rdcm-slides-revealjs
+# Optional title-slide extras:
+title-slide-attributes:
+  data-kicker: "IAEA 2026"    # small mono kicker above the title
+  data-atlas: "true"      # ATLAS signature ("true" or "vertical")
 ---
-
-## Who am I?
 
 ```{r}
 #| label: setup
@@ -17,8 +20,6 @@ library(ggmeasr)
 library(knitr)
 library(measr)
 library(here)
-library(ggdist)
-library(magick)
 library(gt)
 library(gtExtras)
 
@@ -85,6 +86,8 @@ gt_theme_rdcm <- function(gt_dat, bg_color = "#FFFFFF", ...) {
 }
 ```
 
+## Who am I?
+
 :::{.columns}
 :::{.column width="50%"}
 <br>W. Jake Thompson, Ph.D.
@@ -109,9 +112,9 @@ gt_theme_rdcm <- function(gt_dat, bg_color = "#FFFFFF", ...) {
 include_graphics("figure/wjt-2022-hex.png")
 ```
 
-:::{.small}
-{{< iconify fa6-brands github >}} &nbsp; [@wjakethompson](https://www.gitub.com/wjakethompson)  
-{{< iconify fa6-brands bluesky >}} &nbsp; [@wjakethompson.com](https://bsky.app/profile/wjakethompson.com)
+:::{.end-links .centered}
+{{< iconify fa6-brands github >}} \ [@wjakethompson](https://www.gitub.com/wjakethompson)  
+{{< iconify fa6-brands bluesky >}} \ [@wjakethompson.com](https://bsky.app/profile/wjakethompson.com)
 :::
 :::
 :::
