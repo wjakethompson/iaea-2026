@@ -122,20 +122,6 @@ include_graphics("figure/wjt-2022-hex.png")
 
 # Diagnostic assessments
 
-## Diagnostic measurement
-
-* Designed to be multidimensional
-* No continuum of student achievement
-* Categorical constructs
-  * Usually binary (e.g., master/nonmaster, proficient/not proficient)
-
-* Several different names in the literature
-  * Diagnostic classification models (DCMs)
-  * Cognitive diagnostic models (CDMs)
-  * Skills assessment models
-  * Latent response models
-  * Restricted latent class models
-
 ## From traditional to diagnostic assessment
 
 :::{.columns}
@@ -199,6 +185,20 @@ tibble(
 
 * Attributes are categorical, often dichotomous (e.g., proficient vs. non-proficient)
 
+## Diagnostic measurement
+
+* Designed to be multidimensional
+* No continuum of student achievement
+* Categorical constructs
+  * Usually binary (e.g., master/nonmaster, proficient/not proficient)
+
+* Several different names in the literature
+  * Diagnostic classification models (DCMs)
+  * Cognitive diagnostic models (CDMs)
+  * Skills assessment models
+  * Latent response models
+  * Restricted latent class models
+
 # Using diagnostic models
 
 ## Utility of diagnostic results
@@ -214,7 +214,7 @@ tibble(
 #| out-width: 100%
 #| fig-alt: "Hex logo for the measr R package."
 
-include_graphics("figure/measr-hex.png")
+include_graphics("figure/measr.png")
 ```
 
 ## What is measr?
@@ -409,7 +409,7 @@ measr_extract(ecpe_lcdm, "attribute_prob")
 
 ## Evaluating classifications
 
-* Rather than individual attribute classifications, we can evaluate across the population of respondents ([Sinharay & Johnson, 2019](https://doi.org/10.1007/978-3-030-05584-4_17))
+* Rather than individual attribute classifications, we can evaluate across the population of respondents ([Johnson & Sinharay, 2018](https://doi.org/10.1111/jedm.12196))
   * Accuracy: Probability the estimated classification is "correct"
   * Consistency: Probability that two parallel forms result in the same classification (i.e., test-retest)
 
@@ -424,7 +424,7 @@ measr_extract(ecpe_lcdm, "classification_reliability")
 
 ## Evaluating probabilities
 
-* We can also evaluate the mastery probabilities across respondents
+* We can also evaluate the mastery probabilities across respondents ([Johnson & Sinharay, 2020](https://doi.org/10.3102/1076998619864550))
   * Informational: The proportion of uncertainty in an examinees mastery status that is eliminated by observing their item responses
 
 <br>
@@ -440,7 +440,51 @@ measr_extract(ecpe_lcdm, "probability_reliability")
 
 * Scoring algorithms are often a "black box"
 
-# Learn more:<br>[**r-dcm.org**](https://r-dcm.org) {.closing data-menu-title="Get in touch"}
+* measr is completely open source
+  * Available on GitHub: <https://github.com/r-dcm/measr>
+  * Examine exactly how measr estimates models and calculates evaluation metrics (e.g., model fit, reliability)
+
+* Users can also host their analysis scripts using measr, allowing other experts or the public to evaluate how the software was used
+
+# What's next?
+
+## Learn more about DCMs
+
+:::{.columns .center}
+
+:::{.column width="50%"}
+[![](figure/rupp-book.jpg){fig-alt="Cover of Diagnostic Measurement book by Rupp, Templin, and Henson." height="18em"}](https://www.amazon.com/Diagnostic-Measurement-Applications-Methodology-Sciences/dp/1606235273)
+:::
+
+:::{.column width="50%"}
+[![](figure/dcm-handbook.jpeg){fig-alt="Cover of the Handbook of Diagnostic Classification Models by von Davier and Lee." height="18em"}](https://link.springer.com/book/10.1007/978-3-030-05584-4)
+:::
+
+:::
+
+## Learn more about measr
+
+:::{.columns .v-center-container}
+
+:::{.column .center}
+![](figure/measr.png){width="60%" fig-alt="Hex logo for the measr R package."}
+:::
+
+:::{.column}
+
+:::{.larger .spaced}
+{{< fa globe >}} \ [Case studies to get started](https://r-dcm.org/start)
+
+{{< fa book-open >}} \ [measr documentation](https://measr.r-dcm.org)
+
+{{< fa brands github >}} \ [r-dcm/measr](https://github.com/r-dcm/measr)
+:::
+
+:::
+
+:::
+
+## [**r-dcm.org**](https://r-dcm.org) {.closing data-menu-title="Get in touch"}
 
 :::{.columns .v-center-container}
 :::{.column width="60%"}

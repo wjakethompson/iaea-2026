@@ -32,7 +32,7 @@ $rdcm-inset-dark-left: 495px;
 $rdcm-inset-dark-right: 225px;
 
 /* code blocks — grey field with a navy hairline, matching measr-slides */
-$code-font-size: 1.2em;
+$code-font-size: 1.4em;
 /* Quarto derives inline code as $code-font-size * 0.875, which lands 5% above
    the surrounding copy. Pin it to 1em so inline code matches the text it sits
    in; code blocks keep $code-font-size. */
@@ -600,6 +600,12 @@ $btn-code-copy-color-active: $rdcm-blue;
 }
 
 /* ---- utilities --------------------------------------------------------- */
+.reveal .slides .spaced {
+  p {
+    line-height: 2em;
+  }
+}
+
 .reveal .slides .center {
   text-align: center;
 }
@@ -628,26 +634,35 @@ $btn-code-copy-color-active: $rdcm-blue;
   color: $rdcm-red;
 }
 
-.reveal .slides li {
-  margin-top: 0.55em;
+/* Space out level-one bullets; keep nested bullets tight beneath their parent.
+   Quarto injects `.reveal .slide ul li { margin-top: 0.4em; margin-bottom: 0.2em }`
+   as an inline <style> *after* this theme, so equal specificity loses — the
+   extra `.slides` here out-ranks it without `!important`. */
+.reveal .slides .slide ul > li,
+.reveal .slides .slide ol > li {
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
-.reveal .slides li li {
-  margin-top: 0.25em;
+.reveal .slides .slide li li {
+  margin-top: 0;
+  margin-bottom: 0;
   font-size: 0.9em;
 }
 
 /* Vertically centres its children. No flex-direction, so applying it to a
    .columns block keeps the columns side by side rather than stacking them —
-   this is what `::: {.columns .v-center-container}` relies on. */
+   this is what `::: {.columns .v-center-container}` relies on.
+   min-height (not height) so tall content grows the box rather than
+   overflowing it symmetrically and colliding with the slide title. */
 .reveal .v-center-container {
   display: flex !important;
   justify-content: center;
   align-items: center;
-  height: 50%;
+  min-height: 50%;
 }
 
-.reveal .v-center-container p {
+.reveal .v-center-container p:not(.spaced p) {
   margin: 0 !important;
 }
 
