@@ -22,6 +22,7 @@ library(measr)
 library(here)
 library(gt)
 library(gtExtras)
+library(ggdist)
 
 set_theme(plot_margin = margin(5, 0, 0, 0))
 
@@ -122,7 +123,49 @@ include_graphics("figure/wjt-2022-hex.png")
 
 # Diagnostic assessments
 
-## From traditional to diagnostic assessment
+## Traditional psychometrics {.hex-quiet}
+
+:::{.columns}
+:::{.column width="25%"}
+* Traditional assessments and psychometric models measure an overall skill or ability
+* Assume a continuous latent trait
+:::
+
+:::{.column width="75%"}
+```{r}
+#| label: normal-dist
+#| out-width: 100%
+#| out-height: 90%
+#| fig-alt: |
+#|   A normal distribution.
+
+prior(normal(0, 1), type = "intercept") |>
+  dcmstan::prior_tibble() |>
+  parse_dist(prior) |>
+  ggplot(aes(xdist = .dist_obj)) +
+  stat_slab(color = palette_measr[1], fill = palette_measr[3]) +
+  labs(x = "Ability", y = NULL) +
+  theme(axis.text.y = element_blank(), axis.title.y = element_blank())
+```
+
+:::
+:::
+
+## Diagnostic measurement
+
+* Designed to be multidimensional
+* No continuum of student achievement
+* Categorical constructs
+  * Usually binary (e.g., master/nonmaster, proficient/not proficient)
+
+* Several different names in the literature
+  * Diagnostic classification models (DCMs)
+  * Cognitive diagnostic models (CDMs)
+  * Skills assessment models
+  * Latent response models
+  * Restricted latent class models
+
+## Diagnostic psychometrics
 
 :::{.columns}
 
@@ -185,19 +228,69 @@ tibble(
 
 * Attributes are categorical, often dichotomous (e.g., proficient vs. non-proficient)
 
-## Diagnostic measurement
+## Benefits of diagnostic assessments
 
-* Designed to be multidimensional
-* No continuum of student achievement
-* Categorical constructs
-  * Usually binary (e.g., master/nonmaster, proficient/not proficient)
+:::{.columns}
+:::{.column}
+* DCMs place individuals into skill profiles
+  * Fine-grained feedback to inform instructional decisions ([Thompson & Clark, 2024](https://doi.org/10.1111/emip.12619))
+  * Group students with similar profiles
+  * Answer more detailed questions about student achievement
 
-* Several different names in the literature
-  * Diagnostic classification models (DCMs)
-  * Cognitive diagnostic models (CDMs)
-  * Skills assessment models
-  * Latent response models
-  * Restricted latent class models
+* High reliability with fewer items
+:::
+
+:::{.column}
+```{r}
+#| label: generic-classifications
+#| echo: false
+
+library(gt)
+library(gtExtras)
+
+tibble::tribble(
+  ~skill1 , ~skill2 , ~skill3 ,
+  "xmark" , "xmark" , "xmark" ,
+  "check" , "xmark" , "xmark" ,
+  "xmark" , "check" , "xmark" ,
+  "xmark" , "xmark" , "check" ,
+  "check" , "check" , "xmark" ,
+  "check" , "xmark" , "check" ,
+  "xmark" , "check" , "check" ,
+  "check" , "check" , "check"
+) |>
+  mutate(
+    across(
+      everything(),
+      \(x) {
+        case_when(
+          x == "xmark" ~ palette_measr[2],
+          x == "check" ~ palette_measr[4]
+        )
+      },
+      .names = "{.col}_color"
+    )
+  ) |>
+  gt() |>
+  cols_hide(ends_with("_color")) |>
+  cols_label(skill1 = "Skill 1", skill2 = "Skill 2", skill3 = "Skill 3") |>
+  fmt_icon(skill1, fill_color = from_column("skill1_color"), height = "50px") |>
+  fmt_icon(skill2, fill_color = from_column("skill2_color"), height = "50px") |>
+  fmt_icon(skill3, fill_color = from_column("skill3_color"), height = "50px") |>
+  cols_width(everything() ~ px(200)) |>
+  cols_align("center", everything()) |>
+  gt_theme_measr() |>
+  tab_options(
+    table.font.size = 40,
+    container.height = px(600),
+    container.overflow.y = TRUE,
+    quarto.disable_processing = TRUE
+  )
+```
+
+:::
+:::
+
 
 # Using diagnostic models
 
@@ -271,7 +364,9 @@ Specify a DCM with `dcm_specify()`<br><br>
 
 ecpe_spec <- dcm_specify(
   qmatrix = ecpe_qmatrix,
-  identifier = "item_id"
+  identifier = "item_id",
+  measurement_model = lcdm(),
+  structural_model = unconstrained()
 )
 ```
 
@@ -316,7 +411,7 @@ ecpe_lcdm <- dcm_estimate(
 ## Reporing results with DCMs
 
 :::{.columns}
-:::{.column width="48%"}
+:::{.column width="45%"}
 * Results are typically reported as classifications on each of the assessed attributes
 
 * No scale score or ability continuum
@@ -324,16 +419,10 @@ ecpe_lcdm <- dcm_estimate(
 * Each repspondent receives a profile of mastered skills
 :::
 
-:::{.column width="4%"}
-:::
-
-:::{.column width="48%"}
+:::{.column width="55%"}
 ```{r}
 #| label: dcm-classifications
 #| echo: false
-
-library(gt)
-library(gtExtras)
 
 ecpe_profiles <- measr_extract(ecpe_lcdm, "attribute_prob") |>
   mutate(across(c(morphosyntactic, cohesive, lexical), \(x) {
@@ -358,12 +447,15 @@ ecpe_profiles |>
   slice_sample(n = 3, by = c(morphosyntactic, cohesive, lexical)) |>
   slice_sample(n = 20) |>
   select(resp_id, morphosyntactic, cohesive, lexical, ends_with("_color")) |>
-  gt() |>
+  gt(id = "sticky_table") |>
   cols_hide(ends_with("_color")) |>
   cols_label(resp_id = "respondent") |>
-  # cols_width(img ~ px(100),
-  #            everything() ~ px(150)) |>
-  # gt_img_rows(columns = img, img_source = "local", height = 75) |>
+  cols_width(
+    resp_id ~ px(210),
+    morphosyntactic ~ px(285),
+    cohesive ~ px(160),
+    lexical ~ px(160)
+  ) |>
   fmt_icon(
     morphosyntactic,
     fill_color = from_column("m_color"),
@@ -376,7 +468,19 @@ ecpe_profiles |>
   tab_options(
     table.font.size = 32,
     container.height = px(600),
-    container.overflow.y = TRUE
+    container.overflow.y = TRUE,
+    container.padding.y = px(0),
+    table.border.top.width = px(0),
+    column_labels.border.top.width = px(0),
+    quarto.disable_processing = TRUE
+  ) |>
+  opt_css(
+    css = "
+      #sticky_table .gt_col_heading {
+        position: sticky; top: -2px; z-index: 10;
+        box-shadow: inset 0 -3px 0 #023047;
+      }
+    "
   )
 ```
 
@@ -508,8 +612,8 @@ include_graphics("figure/slides-qr.png")
 {{< iconify fa6-solid envelope >}} \ [wjakethompson@ku.edu](mailto:wjakethompson@ku.edu)  
 {{< iconify fa6-brands linkedin >}} \ [in/wjakethompson](https://linkedin.com/in/wjakethompson)  
 {{< iconify fa6-brands github >}} \ [@wjakethompson](https://github.com/wjakethompson)  
-{{< iconify fa6-brands mastodon >}} \ [@wjakethompson@fosstodon.org](https://fosstodon.org/@wjakethompson)  
 {{< iconify fa6-brands bluesky >}} \ [@wjakethompson.com](https://bsky.app/profile/wjakethompson.com)  
+{{< iconify fa6-brands mastodon >}} \ [@wjakethompson@fosstodon.org](https://fosstodon.org/@wjakethompson)  
 {{< iconify fa6-brands threads >}} \ [@wjakethompson](https://www.threads.net/@wjakethompson)  
 {{< iconify fa6-brands x-twitter >}} \ [@wjakethompson](https://twitter.com/wjakethompson)  
 
