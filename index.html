@@ -6,11 +6,14 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-912edf04af3bfa4ea4c420fd73008b27.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/quarto-contrib/iconify-2.1.0/iconify-icon.min.js"></script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-912edf04af3bfa4ea4c420fd73008b27.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.7">
 <meta name="author" content="W. Jake Thompson, Ph.D.">
+<meta name="dcterms.date" content="2026-10-01">
 <title>iaea-2026 – Open and transparent scoring with measr</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -99,9 +102,10 @@
     code span.vs { color: #008000; } /* VerbatimString */
     code span.wa { color: #696969; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-6ba0a8bead114aeea07f2ec6d11c28f0.css">
-<link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/r-dcm/measr-slides/backgrounds.css">
-<link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/r-dcm/measr-slides/lists.css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-cfd26bb4696afdb50b9da5871b12c504.css">
+<link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/r-dcm/rdcm-slides/hexagons.css">
+<link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/r-dcm/rdcm-slides/lists.css">
+<link rel="stylesheet" href="site_libs/quarto-contrib/quarto-project/r-dcm/rdcm-slides/assets.css">
 <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -194,11 +198,11 @@
     }
   </style>
 </head>
-<body class="quarto-dark">
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">Open and transparent scoring with measr</h1>
+<section id="title-slide" data-atlas="true" data-kicker="IAEA 2026" class="quarto-title-block center"><h1 class="title">Open and transparent scoring with measr</h1>
   <p class="subtitle">An R package for diagnostic classification models</p>
 
 <div class="quarto-title-authors">
@@ -209,6 +213,7 @@ W. Jake Thompson, Ph.D.
 </div>
 </div>
 
+  <p class="date">2026-10-01</p>
 </section><section id="who-am-i" class="slide level2"><h2>Who am I?</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -237,13 +242,30 @@ W. Jake Thompson, Ph.D.
 </div>
 </div>
 </div>
-<div class="small">
-<p><iconify-icon inline="" icon="fa6-brands:github" aria-label="Icon github from fa6-brands Iconify.design set." title="Icon github from fa6-brands Iconify.design set."></iconify-icon> &nbsp; <a href="https://www.gitub.com/wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span></a><br><iconify-icon inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon> &nbsp; <a href="https://bsky.app/profile/wjakethompson.com"><span class="citation" data-cites="wjakethompson.com">@wjakethompson.com</span></a></p>
+<div class="end-links centered">
+<p><iconify-icon role="img" inline="" icon="fa6-brands:github" aria-label="Icon github from fa6-brands Iconify.design set." title="Icon github from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://www.gitub.com/wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span></a><br><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://bsky.app/profile/wjakethompson.com"><span class="citation" data-cites="wjakethompson.com">@wjakethompson.com</span></a></p>
 </div>
 </div>
 </div></div>
 </section><section><section id="diagnostic-assessments" class="title-slide slide level1 center"><h1>Diagnostic assessments</h1>
 
+</section><section id="traditional-psychometrics" class="slide level2 hex-quiet"><h2>Traditional psychometrics</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<ul>
+<li>Traditional assessments and psychometric models measure an overall skill or ability</li>
+<li>Assume a continuous latent trait</li>
+</ul>
+</div><div class="column" style="width:75%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="index_files/figure-revealjs/normal-dist-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%;height:90.0%" alt="A normal distribution."></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 </section><section id="diagnostic-measurement" class="slide level2"><h2>Diagnostic measurement</h2>
 <ul>
 <li>Designed to be multidimensional</li>
@@ -262,7 +284,7 @@ W. Jake Thompson, Ph.D.
 <li>Restricted latent class models</li>
 </ul>
 </li>
-</ul></section><section id="from-traditional-to-diagnostic-assessment" class="slide level2"><h2>From traditional to diagnostic assessment</h2>
+</ul></section><section id="diagnostic-psychometrics" class="slide level2"><h2>Diagnostic psychometrics</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
 <ul>
@@ -281,15 +303,563 @@ W. Jake Thompson, Ph.D.
 </div></div>
 <ul>
 <li>Attributes are categorical, often dichotomous (e.g., proficient vs.&nbsp;non-proficient)</li>
-</ul></section></section><section><section id="using-diagnostic-models" class="title-slide slide level1 center"><h1>Using diagnostic models</h1>
+</ul></section><section id="benefits-of-diagnostic-assessments" class="slide level2"><h2>Benefits of diagnostic assessments</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>DCMs place individuals into skill profiles
+<ul>
+<li>Fine-grained feedback to inform instructional decisions (<a href="https://doi.org/10.1111/emip.12619">Thompson &amp; Clark, 2024</a>)</li>
+<li>Group students with similar profiles</li>
+<li>Answer more detailed questions about student achievement</li>
+</ul>
+</li>
+<li>High reliability with fewer items</li>
+</ul>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="oufwkzqeee" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:600px;">
+<style>@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#oufwkzqeee table {
+  font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#oufwkzqeee thead, #oufwkzqeee tbody, #oufwkzqeee tfoot, #oufwkzqeee tr, #oufwkzqeee td, #oufwkzqeee th {
+  border-style: none;
+}
+
+#oufwkzqeee p {
+  margin: 0;
+  padding: 0;
+}
+
+#oufwkzqeee .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 40px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#oufwkzqeee .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#oufwkzqeee .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#oufwkzqeee .gt_heading {
+  background-color: #FFFFFF;
+  text-align: left;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 3px;
+  border-top-color: #FFFFFF;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#oufwkzqeee .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#oufwkzqeee .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#oufwkzqeee .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#oufwkzqeee .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#oufwkzqeee .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#oufwkzqeee .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#oufwkzqeee .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#oufwkzqeee .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#oufwkzqeee .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#oufwkzqeee .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#oufwkzqeee .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 80%;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oufwkzqeee .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#oufwkzqeee .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#oufwkzqeee .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#oufwkzqeee .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oufwkzqeee .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#oufwkzqeee .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oufwkzqeee .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#oufwkzqeee .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oufwkzqeee .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 0px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 0px;
+  border-right-color: #D3D3D3;
+}
+
+#oufwkzqeee .gt_sourcenote {
+  font-size: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#oufwkzqeee .gt_left {
+  text-align: left;
+}
+
+#oufwkzqeee .gt_center {
+  text-align: center;
+}
+
+#oufwkzqeee .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#oufwkzqeee .gt_font_normal {
+  font-weight: normal;
+}
+
+#oufwkzqeee .gt_font_bold {
+  font-weight: bold;
+}
+
+#oufwkzqeee .gt_font_italic {
+  font-style: italic;
+}
+
+#oufwkzqeee .gt_super {
+  font-size: 65%;
+}
+
+#oufwkzqeee .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#oufwkzqeee .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#oufwkzqeee .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#oufwkzqeee .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#oufwkzqeee .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#oufwkzqeee .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#oufwkzqeee .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#oufwkzqeee .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#oufwkzqeee div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" style="table-layout:fixed;width:0px;" data-quarto-disable-processing="true" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width:200px;">
+<col style="width:200px;">
+<col style="width:200px;">
+</colgroup>
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col" id="skill1">Skill 1</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col" id="skill2">Skill 2</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col" id="skill3">Skill 3</th>
+    </tr></thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="skill1" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="skill2" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="skill3" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="skill1" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="skill2" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="skill3" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="skill1" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="skill2" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="skill3" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="skill1" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="skill2" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="skill3" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="skill1" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="skill2" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="skill3" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="skill1" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="skill2" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="skill3" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="skill1" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:50px;width:37.5px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="skill2" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="skill3" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="skill1" class="gt_row gt_center" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="skill2" class="gt_row gt_center" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="skill3" class="gt_row gt_center" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:50px;width:43.75px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></div>
+</section></section><section><section id="using-diagnostic-models" class="title-slide slide level1 center"><h1>Using diagnostic models</h1>
 
 </section><section id="utility-of-diagnostic-results" class="slide level2"><h2>Utility of diagnostic results</h2>
 <ul>
 <li><p>Attribute-level feedback about student learning is more actionable for instructional decision-making (<a href="https://doi.org/10.1111/emip.12619">Thompson &amp; Clark, 2024</a>)</p></li>
 <li><p>However, the uniqueness and complexity of DCMs can create a “black box” for practitioners and stakeholders</p></li>
-</ul></section><section id="section" class="slide level2 empty" data-menu-title="measr" data-background-color="#023047" data-background-iframe="grid-worms/index.html"><h2></h2>
+</ul></section><section id="section" class="slide level2 empty-navy" data-menu-title="measr" data-background-color="#023047" data-background-iframe="grid-worms/index.html"><h2></h2>
 
-<img data-src="figure/measr-hex.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Hex logo for the measr R package."></section><section id="what-is-measr" class="slide level2"><h2>What is measr?</h2>
+<img data-src="figure/measr.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%" alt="Hex logo for the measr R package."></section><section id="what-is-measr" class="slide level2"><h2>What is measr?</h2>
 <ul>
 <li><p>R package that automates the creation of Stan scripts for DCMs</p></li>
 <li><p>Wraps <a href="https://mc-stan.org/rstan">rstan</a> or <a href="https://mc-stan.org/cmdstanr">cmdstanr</a> to estimate the models</p></li>
@@ -369,8 +939,10 @@ W. Jake Thompson, Ph.D.
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>ecpe_spec <span class="ot">&lt;-</span> <span class="fu">dcm_specify</span>(</span>
 <span id="cb3-2"><a></a>  <span class="at">qmatrix =</span> ecpe_qmatrix,</span>
-<span id="cb3-3"><a></a>  <span class="at">identifier =</span> <span class="st">"item_id"</span></span>
-<span id="cb3-4"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a></a>  <span class="at">identifier =</span> <span class="st">"item_id"</span>,</span>
+<span id="cb3-4"><a></a>  <span class="at">measurement_model =</span> <span class="fu">lcdm</span>(),</span>
+<span id="cb3-5"><a></a>  <span class="at">structural_model =</span> <span class="fu">unconstrained</span>()</span>
+<span id="cb3-6"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -389,46 +961,46 @@ W. Jake Thompson, Ph.D.
 
 </section><section id="reporing-results-with-dcms" class="slide level2"><h2>Reporing results with DCMs</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:45%;">
 <ul>
 <li><p>Results are typically reported as classifications on each of the assessed attributes</p></li>
 <li><p>No scale score or ability continuum</p></li>
 <li><p>Each repspondent receives a profile of mastered skills</p></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:55%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="lewmicfqdw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:450px;">
+<div id="sticky_table" style="padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;overflow-x:auto;overflow-y:auto;width:auto;height:600px;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#lewmicfqdw table {
+#sticky_table table {
   font-family: 'Open Sans', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lewmicfqdw thead, #lewmicfqdw tbody, #lewmicfqdw tfoot, #lewmicfqdw tr, #lewmicfqdw td, #lewmicfqdw th {
+#sticky_table thead, #sticky_table tbody, #sticky_table tfoot, #sticky_table tr, #sticky_table td, #sticky_table th {
   border-style: none;
 }
 
-#lewmicfqdw p {
+#sticky_table p {
   margin: 0;
   padding: 0;
 }
 
-#lewmicfqdw .gt_table {
+#sticky_table .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
   margin-left: auto;
   margin-right: auto;
   color: #333333;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: normal;
   font-style: normal;
   background-color: #FFFFFF;
   width: auto;
   border-top-style: solid;
-  border-top-width: 1px;
+  border-top-width: 0px;
   border-top-color: #A8A8A8;
   border-right-style: none;
   border-right-width: 2px;
@@ -441,12 +1013,12 @@ W. Jake Thompson, Ph.D.
   border-left-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_caption {
+#sticky_table .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lewmicfqdw .gt_title {
+#sticky_table .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -458,7 +1030,7 @@ W. Jake Thompson, Ph.D.
   border-bottom-width: 0;
 }
 
-#lewmicfqdw .gt_subtitle {
+#sticky_table .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -470,7 +1042,7 @@ W. Jake Thompson, Ph.D.
   border-top-width: 0;
 }
 
-#lewmicfqdw .gt_heading {
+#sticky_table .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -482,15 +1054,15 @@ W. Jake Thompson, Ph.D.
   border-right-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_bottom_border {
+#sticky_table .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_col_headings {
+#sticky_table .gt_col_headings {
   border-top-style: solid;
-  border-top-width: 3px;
+  border-top-width: 0px;
   border-top-color: #FFFFFF;
   border-bottom-style: solid;
   border-bottom-width: 2px;
@@ -503,7 +1075,7 @@ W. Jake Thompson, Ph.D.
   border-right-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_col_heading {
+#sticky_table .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -523,7 +1095,7 @@ W. Jake Thompson, Ph.D.
   overflow-x: hidden;
 }
 
-#lewmicfqdw .gt_column_spanner_outer {
+#sticky_table .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -535,15 +1107,15 @@ W. Jake Thompson, Ph.D.
   padding-right: 4px;
 }
 
-#lewmicfqdw .gt_column_spanner_outer:first-child {
+#sticky_table .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lewmicfqdw .gt_column_spanner_outer:last-child {
+#sticky_table .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lewmicfqdw .gt_column_spanner {
+#sticky_table .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -555,11 +1127,11 @@ W. Jake Thompson, Ph.D.
   width: 100%;
 }
 
-#lewmicfqdw .gt_spanner_row {
+#sticky_table .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lewmicfqdw .gt_group_heading {
+#sticky_table .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -585,7 +1157,7 @@ W. Jake Thompson, Ph.D.
   text-align: left;
 }
 
-#lewmicfqdw .gt_empty_group_heading {
+#sticky_table .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -600,15 +1172,15 @@ W. Jake Thompson, Ph.D.
   vertical-align: middle;
 }
 
-#lewmicfqdw .gt_from_md > :first-child {
+#sticky_table .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lewmicfqdw .gt_from_md > :last-child {
+#sticky_table .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lewmicfqdw .gt_row {
+#sticky_table .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -627,7 +1199,7 @@ W. Jake Thompson, Ph.D.
   overflow-x: hidden;
 }
 
-#lewmicfqdw .gt_stub {
+#sticky_table .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 80%;
@@ -640,7 +1212,7 @@ W. Jake Thompson, Ph.D.
   padding-right: 5px;
 }
 
-#lewmicfqdw .gt_stub_row_group {
+#sticky_table .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -654,15 +1226,15 @@ W. Jake Thompson, Ph.D.
   vertical-align: top;
 }
 
-#lewmicfqdw .gt_row_group_first td {
+#sticky_table .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lewmicfqdw .gt_row_group_first th {
+#sticky_table .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lewmicfqdw .gt_summary_row {
+#sticky_table .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -672,16 +1244,16 @@ W. Jake Thompson, Ph.D.
   padding-right: 5px;
 }
 
-#lewmicfqdw .gt_first_summary_row {
+#sticky_table .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_first_summary_row.thick {
+#sticky_table .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lewmicfqdw .gt_last_summary_row {
+#sticky_table .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -691,7 +1263,7 @@ W. Jake Thompson, Ph.D.
   border-bottom-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_grand_summary_row {
+#sticky_table .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -701,7 +1273,7 @@ W. Jake Thompson, Ph.D.
   padding-right: 5px;
 }
 
-#lewmicfqdw .gt_first_grand_summary_row {
+#sticky_table .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -711,7 +1283,7 @@ W. Jake Thompson, Ph.D.
   border-top-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_last_grand_summary_row_top {
+#sticky_table .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -721,11 +1293,11 @@ W. Jake Thompson, Ph.D.
   border-bottom-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_striped {
+#sticky_table .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lewmicfqdw .gt_table_body {
+#sticky_table .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -734,7 +1306,7 @@ W. Jake Thompson, Ph.D.
   border-bottom-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_footnotes {
+#sticky_table .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -748,7 +1320,7 @@ W. Jake Thompson, Ph.D.
   border-right-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_footnote {
+#sticky_table .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -757,7 +1329,7 @@ W. Jake Thompson, Ph.D.
   padding-right: 5px;
 }
 
-#lewmicfqdw .gt_sourcenotes {
+#sticky_table .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -771,7 +1343,7 @@ W. Jake Thompson, Ph.D.
   border-right-color: #D3D3D3;
 }
 
-#lewmicfqdw .gt_sourcenote {
+#sticky_table .gt_sourcenote {
   font-size: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -779,448 +1351,275 @@ W. Jake Thompson, Ph.D.
   padding-right: 5px;
 }
 
-#lewmicfqdw .gt_left {
+#sticky_table .gt_left {
   text-align: left;
 }
 
-#lewmicfqdw .gt_center {
+#sticky_table .gt_center {
   text-align: center;
 }
 
-#lewmicfqdw .gt_right {
+#sticky_table .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lewmicfqdw .gt_font_normal {
+#sticky_table .gt_font_normal {
   font-weight: normal;
 }
 
-#lewmicfqdw .gt_font_bold {
+#sticky_table .gt_font_bold {
   font-weight: bold;
 }
 
-#lewmicfqdw .gt_font_italic {
+#sticky_table .gt_font_italic {
   font-style: italic;
 }
 
-#lewmicfqdw .gt_super {
+#sticky_table .gt_super {
   font-size: 65%;
 }
 
-#lewmicfqdw .gt_footnote_marks {
+#sticky_table .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lewmicfqdw .gt_asterisk {
+#sticky_table .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lewmicfqdw .gt_indent_1 {
+#sticky_table .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lewmicfqdw .gt_indent_2 {
+#sticky_table .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lewmicfqdw .gt_indent_3 {
+#sticky_table .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lewmicfqdw .gt_indent_4 {
+#sticky_table .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lewmicfqdw .gt_indent_5 {
+#sticky_table .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lewmicfqdw .katex-display {
+#sticky_table .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lewmicfqdw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sticky_table div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
+
+#sticky_table .gt_col_heading {
+  position: sticky;
+  top: -2px;
+  z-index: 10;
+  box-shadow: inset 0 -3px 0 #023047;
+}
 </style>
-<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<table class="gt_table" style="table-layout:fixed;width:0px;" data-quarto-disable-processing="true" data-quarto-bootstrap="false">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width:210px;">
+<col style="width:285px;">
+<col style="width:160px;">
+<col style="width:160px;">
 </colgroup>
-<thead><tr class="gt_col_headings header">
-<th id="resp_id" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col">respondent</th>
-<th id="morphosyntactic" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col">morphosyntactic</th>
-<th id="cohesive" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col">cohesive</th>
-<th id="lexical" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col">lexical</th>
-</tr></thead>
+<thead><tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col" id="resp_id">respondent</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col" id="morphosyntactic">morphosyntactic</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col" id="cohesive">cohesive</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="text-align: center; vertical-align: middle; font-weight: bold; border-bottom-width: 3px; border-bottom-style: solid; border-bottom-color: #023047;" scope="col" id="lexical">lexical</th>
+    </tr></thead>
 <tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">1926</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">279</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">493</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">1604</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
 </tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">2414</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">1554</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
 </tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">2812</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">2057</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
 </tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">798</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">2390</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">1735</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">1080</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
 </tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">475</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">2145</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
 </tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">2319</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">481</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
 </tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">1788</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">2833</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">747</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">2691</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">965</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
 </tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">1150</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">2054</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
 </tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">2343</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">2400</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">1728</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
 </tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">1554</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">551</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="resp_id" style="background-color: #FFFFFF">2904</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
-<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
-<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
 </tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="resp_id" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF">815</td>
-<td class="gt_row gt_center" headers="morphosyntactic" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">245</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="cohesive" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>
-Xmark
-</title>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">1522</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
-<td class="gt_row gt_center" headers="lexical" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF"><span style="white-space:nowrap;">
-<svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>
-Check
-</title>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
 <path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">1003</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">2121</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">2459</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">492</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">1648</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">2825</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="background-color: #FFFFFF;">311</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+</tr>
+<tr>
+<td headers="resp_id" class="gt_row gt_right" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF;">1832</td>
+<td headers="morphosyntactic" class="gt_row gt_center" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
+<td headers="cohesive" class="gt_row gt_center" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Check" role="img" viewbox="0 0 448 512" style="height:40px;width:35px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#219EBC;overflow:visible;position:relative;"><title>Check</title>
+<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"></path></svg></span></td>
+<td headers="lexical" class="gt_row gt_center" style="border-bottom-width: 2px; border-bottom-style: solid; border-bottom-color: transparent; background-color: #FFFFFF;"><span style="white-space:nowrap;"><svg aria-label="Xmark" role="img" viewbox="0 0 384 512" style="height:40px;width:30px;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#D7263D;overflow:visible;position:relative;"><title>Xmark</title>
+<path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path></svg></span></td>
 </tr>
 </tbody>
 </table>
@@ -1256,20 +1655,91 @@ Check
 <span id="cb5-15"><a></a><span class="co">#&gt; # ℹ 2,912 more rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
-</section></section><section><section id="learn-more-r-dcm.org" class="title-slide slide level1 thank-you center" data-menu-title="Get in touch" data-background-color="#023047"><h1>Learn more: <a href="https://r-dcm.org"><strong>r-dcm.org</strong></a>
-</h1>
+</section><section id="evaluating-classifications" class="slide level2"><h2>Evaluating classifications</h2>
+<ul>
+<li>Rather than individual attribute classifications, we can evaluate across the population of respondents (<a href="https://doi.org/10.1111/jedm.12196">Johnson &amp; Sinharay, 2018</a>)
+<ul>
+<li>Accuracy: Probability the estimated classification is “correct”</li>
+<li>Consistency: Probability that two parallel forms result in the same classification (i.e., test-retest)</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">measr_extract</span>(ecpe_lcdm, <span class="st">"classification_reliability"</span>)</span>
+<span id="cb6-2"><a></a><span class="co">#&gt; # A tibble: 3 × 3</span></span>
+<span id="cb6-3"><a></a><span class="co">#&gt;   attribute       accuracy consistency</span></span>
+<span id="cb6-4"><a></a><span class="co">#&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt;</span></span>
+<span id="cb6-5"><a></a><span class="co">#&gt; 1 morphosyntactic    0.893       0.812</span></span>
+<span id="cb6-6"><a></a><span class="co">#&gt; 2 cohesive           0.851       0.795</span></span>
+<span id="cb6-7"><a></a><span class="co">#&gt; 3 lexical            0.919       0.853</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="evaluating-probabilities" class="slide level2"><h2>Evaluating probabilities</h2>
+<ul>
+<li>We can also evaluate the mastery probabilities across respondents (<a href="https://doi.org/10.3102/1076998619864550">Johnson &amp; Sinharay, 2020</a>)
+<ul>
+<li>Informational: The proportion of uncertainty in an examinees mastery status that is eliminated by observing their item responses</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">measr_extract</span>(ecpe_lcdm, <span class="st">"probability_reliability"</span>)</span>
+<span id="cb7-2"><a></a><span class="co">#&gt; # A tibble: 3 × 2</span></span>
+<span id="cb7-3"><a></a><span class="co">#&gt;   attribute       informational</span></span>
+<span id="cb7-4"><a></a><span class="co">#&gt;   &lt;chr&gt;                   &lt;dbl&gt;</span></span>
+<span id="cb7-5"><a></a><span class="co">#&gt; 1 morphosyntactic         0.572</span></span>
+<span id="cb7-6"><a></a><span class="co">#&gt; 2 cohesive                0.500</span></span>
+<span id="cb7-7"><a></a><span class="co">#&gt; 3 lexical                 0.589</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="evaluating-scoring-pipelines" class="slide level2"><h2>Evaluating scoring pipelines</h2>
+<ul>
+<li><p>Scoring algorithms are often a “black box”</p></li>
+<li>
+<p>measr is completely open source</p>
+<ul>
+<li>Available on GitHub: <a href="https://github.com/r-dcm/measr" class="uri">https://github.com/r-dcm/measr</a>
+</li>
+<li>Examine exactly how measr estimates models and calculates evaluation metrics (e.g., model fit, reliability)</li>
+</ul>
+</li>
+<li><p>Users can also host their analysis scripts using measr, allowing other experts or the public to evaluate how the software was used</p></li>
+</ul></section></section><section><section id="whats-next" class="title-slide slide level1 center"><h1>What’s next?</h1>
+
+</section><section id="learn-more-about-dcms" class="slide level2"><h2>Learn more about DCMs</h2>
+<div class="columns center">
+<div class="column" style="width:50%;">
+<p><a href="https://www.amazon.com/Diagnostic-Measurement-Applications-Methodology-Sciences/dp/1606235273"><img data-src="figure/rupp-book.jpg" style="height:18em" alt="Cover of Diagnostic Measurement book by Rupp, Templin, and Henson."></a></p>
+</div><div class="column" style="width:50%;">
+<p><a href="https://link.springer.com/book/10.1007/978-3-030-05584-4"><img data-src="figure/dcm-handbook.jpeg" style="height:18em" alt="Cover of the Handbook of Diagnostic Classification Models by von Davier and Lee."></a></p>
+</div></div>
+</section><section id="learn-more-about-measr" class="slide level2"><h2>Learn more about measr</h2>
 <div class="columns v-center-container">
-<div class="column image" style="width:60%;">
+<div class="column center">
+<p><img data-src="figure/measr.png" style="width:60.0%" alt="Hex logo for the measr R package."></p>
+</div><div class="column">
+<div class="larger spaced">
+<p><i class="fa-solid fa-globe" aria-label="globe"></i> &nbsp;<a href="https://r-dcm.org/start">Case studies to get started</a></p>
+<p><i class="fa-solid fa-book-open" aria-label="book-open"></i> &nbsp;<a href="https://measr.r-dcm.org">measr documentation</a></p>
+<p><i class="fa-brands fa-github" aria-label="github"></i> &nbsp;<a href="https://github.com/r-dcm/measr">r-dcm/measr</a></p>
+</div>
+</div></div>
+</section><section id="r-dcm.org" class="slide level2 closing" data-menu-title="Get in touch"><h2><a href="https://r-dcm.org"><strong>r-dcm.org</strong></a></h2>
+<div class="columns v-center-container">
+<div class="column" style="width:60%;">
 <div class="center">
 <p>Slides</p>
 </div>
-</div><div class="column" style="width:40%;">
-<div class="thank-you-subtitle">
-<div class="small">
-<p><br></p>
-<p><iconify-icon inline="" icon="fa6-solid:globe" aria-label="Icon globe from fa6-solid Iconify.design set." title="Icon globe from fa6-solid Iconify.design set."></iconify-icon> &nbsp;<a href="https://wjakethompson.com">wjakethompson.com</a><br><iconify-icon inline="" icon="fa6-solid:envelope" aria-label="Icon envelope from fa6-solid Iconify.design set." title="Icon envelope from fa6-solid Iconify.design set."></iconify-icon> &nbsp;<a href="mailto:wjakethompson@ku.edu">wjakethompson@ku.edu</a><br><iconify-icon inline="" icon="fa6-brands:orcid" aria-label="Icon orcid from fa6-brands Iconify.design set." title="Icon orcid from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://orcid.org/0000-0001-7339-0300">0000-0001-7339-0300</a><br><iconify-icon inline="" icon="fa6-brands:linkedin" aria-label="Icon linkedin from fa6-brands Iconify.design set." title="Icon linkedin from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://linkedin.com/in/wjakethompson">in/wjakethompson</a><br><iconify-icon inline="" icon="fa6-brands:github" aria-label="Icon github from fa6-brands Iconify.design set." title="Icon github from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://github.com/wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span></a><br><iconify-icon inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://bsky.app/profile/wjakethompson.com"><span class="citation" data-cites="wjakethompson.com">@wjakethompson.com</span></a><br><iconify-icon inline="" icon="fa6-brands:mastodon" aria-label="Icon mastodon from fa6-brands Iconify.design set." title="Icon mastodon from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://fosstodon.org/@wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span><span class="citation" data-cites="fosstodon.org">@fosstodon.org</span></a><br><iconify-icon inline="" icon="fa6-brands:threads" aria-label="Icon threads from fa6-brands Iconify.design set." title="Icon threads from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://www.threads.net/@wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span></a><br><iconify-icon inline="" icon="fa6-brands:x-twitter" aria-label="Icon x-twitter from fa6-brands Iconify.design set." title="Icon x-twitter from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://twitter.com/wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span></a></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="figure/slides-qr.png" class="quarto-figure quarto-figure-center" style="width:50.0%" alt="QR code linking to https://iaea2026.wjakethompson.com"></p>
+</figure>
 </div>
 </div>
+</div>
+</div><div class="column end-links" style="width:40%;">
+<p><iconify-icon role="img" inline="" icon="fa6-solid:globe" aria-label="Icon globe from fa6-solid Iconify.design set." title="Icon globe from fa6-solid Iconify.design set."></iconify-icon> &nbsp;<a href="https://wjakethompson.com">wjakethompson.com</a><br><iconify-icon role="img" inline="" icon="fa6-solid:envelope" aria-label="Icon envelope from fa6-solid Iconify.design set." title="Icon envelope from fa6-solid Iconify.design set."></iconify-icon> &nbsp;<a href="mailto:wjakethompson@ku.edu">wjakethompson@ku.edu</a><br><iconify-icon role="img" inline="" icon="fa6-brands:linkedin" aria-label="Icon linkedin from fa6-brands Iconify.design set." title="Icon linkedin from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://linkedin.com/in/wjakethompson">in/wjakethompson</a><br><iconify-icon role="img" inline="" icon="fa6-brands:github" aria-label="Icon github from fa6-brands Iconify.design set." title="Icon github from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://github.com/wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span></a><br><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://bsky.app/profile/wjakethompson.com"><span class="citation" data-cites="wjakethompson.com">@wjakethompson.com</span></a><br><iconify-icon role="img" inline="" icon="fa6-brands:mastodon" aria-label="Icon mastodon from fa6-brands Iconify.design set." title="Icon mastodon from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://fosstodon.org/@wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span><span class="citation" data-cites="fosstodon.org">@fosstodon.org</span></a><br><iconify-icon role="img" inline="" icon="fa6-brands:threads" aria-label="Icon threads from fa6-brands Iconify.design set." title="Icon threads from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://www.threads.net/@wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span></a><br><iconify-icon role="img" inline="" icon="fa6-brands:x-twitter" aria-label="Icon x-twitter from fa6-brands Iconify.design set." title="Icon x-twitter from fa6-brands Iconify.design set."></iconify-icon> &nbsp;<a href="https://twitter.com/wjakethompson"><span class="citation" data-cites="wjakethompson">@wjakethompson</span></a></p>
 </div></div>
 </section><section id="acknowledgements" class="slide level2"><h2>Acknowledgements</h2>
 <p>The research reported here was supported by the Institute of Education Sciences, U.S. Department of Education, through Grants <a href="https://ies.ed.gov/funding/grantsearch/details.asp?ID=4546">R305D210045</a> and <a href="https://ies.ed.gov/funding/grantsearch/details.asp?ID=6075">R305D240032</a> to the University of Kansas Center for Research, Inc., ATLAS. The opinions expressed are those of the authors and do not represent the views of the Institute or the U.S. Department of Education. <br><br></p>
@@ -1456,9 +1926,9 @@ Check
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1280,
+        width: 1920,
 
-        height: 720,
+        height: 1080,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,

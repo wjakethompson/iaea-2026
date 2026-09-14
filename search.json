@@ -4,7 +4,14 @@
     "href": "index.html#who-am-i",
     "title": "Open and transparent scoring with measr",
     "section": "Who am I?",
-    "text": "Who am I?\n\n\nW. Jake Thompson, Ph.D.\n\nAssistant Director of Psychometrics\n\n\nATLAS | University of Kansas\n\n\nResearch: Applications of diagnostic psychometric models\n\nLead psychometrician and Co-PI for the Dynamic Learnings Maps assessments\nPI for an IES-funded project to develop software for diagnostic models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n   @wjakethompson   @wjakethompson.com"
+    "text": "Who am I?\n\n\nW. Jake Thompson, Ph.D.\n\nAssistant Director of Psychometrics\n\n\nATLAS | University of Kansas\n\n\nResearch: Applications of diagnostic psychometric models\n\nLead psychometrician and Co-PI for the Dynamic Learnings Maps assessments\nPI for an IES-funded project to develop software for diagnostic models\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  @wjakethompson  @wjakethompson.com"
+  },
+  {
+    "objectID": "index.html#traditional-psychometrics",
+    "href": "index.html#traditional-psychometrics",
+    "title": "Open and transparent scoring with measr",
+    "section": "Traditional psychometrics",
+    "text": "Traditional psychometrics\n\n\n\nTraditional assessments and psychometric models measure an overall skill or ability\nAssume a continuous latent trait"
   },
   {
     "objectID": "index.html#diagnostic-measurement",
@@ -14,11 +21,18 @@
     "text": "Diagnostic measurement\n\nDesigned to be multidimensional\nNo continuum of student achievement\nCategorical constructs\n\nUsually binary (e.g., master/nonmaster, proficient/not proficient)\n\n\nSeveral different names in the literature\n\nDiagnostic classification models (DCMs)\nCognitive diagnostic models (CDMs)\nSkills assessment models\nLatent response models\nRestricted latent class models"
   },
   {
-    "objectID": "index.html#from-traditional-to-diagnostic-assessment",
-    "href": "index.html#from-traditional-to-diagnostic-assessment",
+    "objectID": "index.html#diagnostic-psychometrics",
+    "href": "index.html#diagnostic-psychometrics",
     "title": "Open and transparent scoring with measr",
-    "section": "From traditional to diagnostic assessment",
-    "text": "From traditional to diagnostic assessment\n\n\n\nRather than measuring a single trait, we can break the construct into a set of skills or attributes\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttributes are categorical, often dichotomous (e.g., proficient vs. non-proficient)"
+    "section": "Diagnostic psychometrics",
+    "text": "Diagnostic psychometrics\n\n\n\nRather than measuring a single trait, we can break the construct into a set of skills or attributes\n\n\n\n\n\n\n\n\n\n\n\n\n\nAttributes are categorical, often dichotomous (e.g., proficient vs. non-proficient)"
+  },
+  {
+    "objectID": "index.html#benefits-of-diagnostic-assessments",
+    "href": "index.html#benefits-of-diagnostic-assessments",
+    "title": "Open and transparent scoring with measr",
+    "section": "Benefits of diagnostic assessments",
+    "text": "Benefits of diagnostic assessments\n\n\n\nDCMs place individuals into skill profiles\n\nFine-grained feedback to inform instructional decisions (Thompson & Clark, 2024)\nGroup students with similar profiles\nAnswer more detailed questions about student achievement\n\n\nHigh reliability with fewer items\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkill 1\n      Skill 2\n      Skill 3\n    \n\n\nXmark\n\nXmark\n\nXmark\n\n\n\nCheck\n\nXmark\n\nXmark\n\n\n\nXmark\n\nCheck\n\nXmark\n\n\n\nXmark\n\nXmark\n\nCheck\n\n\n\nCheck\n\nCheck\n\nXmark\n\n\n\nCheck\n\nXmark\n\nCheck\n\n\n\nXmark\n\nCheck\n\nCheck\n\n\n\nCheck\n\nCheck\n\nCheck"
   },
   {
     "objectID": "index.html#utility-of-diagnostic-results",
@@ -60,14 +74,14 @@
     "href": "index.html#model-estimation-with-measr",
     "title": "Open and transparent scoring with measr",
     "section": "Model estimation with measr",
-    "text": "Model estimation with measr\n\n\nSpecification\nEstimation\n\n\n\nSpecify a DCM with dcm_specify()\n\necpe_spec &lt;- dcm_specify(\n  qmatrix = ecpe_qmatrix,\n  identifier = \"item_id\"\n)\n\n\n\nEstimate a DCM with dcm_estimate()\n\necpe_lcdm &lt;- dcm_estimate(\n  dcm_spec = ecpe_spec,\n  data = ecpe_data,\n  identifier = \"resp_id\"\n)"
+    "text": "Model estimation with measr\n\n\nSpecification\nEstimation\n\n\n\nSpecify a DCM with dcm_specify()\n\necpe_spec &lt;- dcm_specify(\n  qmatrix = ecpe_qmatrix,\n  identifier = \"item_id\",\n  measurement_model = lcdm(),\n  structural_model = unconstrained()\n)\n\n\n\nEstimate a DCM with dcm_estimate()\n\necpe_lcdm &lt;- dcm_estimate(\n  dcm_spec = ecpe_spec,\n  data = ecpe_data,\n  identifier = \"resp_id\"\n)"
   },
   {
     "objectID": "index.html#reporing-results-with-dcms",
     "href": "index.html#reporing-results-with-dcms",
     "title": "Open and transparent scoring with measr",
     "section": "Reporing results with DCMs",
-    "text": "Reporing results with DCMs\n\n\n\nResults are typically reported as classifications on each of the assessed attributes\nNo scale score or ability continuum\nEach repspondent receives a profile of mastered skills\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrespondent\nmorphosyntactic\ncohesive\nlexical\n\n\n\n1926\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n493\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\n1604\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n2414\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\n2812\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n798\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\n1735\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\n1080\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\n475\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\n2319\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n1788\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n747\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n2691\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\n965\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\n1150\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n2343\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\nXmark\n\n\n\n\n1728\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\nCheck\n\n\n\n\n1554\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\n2904\n\n\nXmark\n\n\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\n815\n\n\nCheck\n\n\n\n\nXmark\n\n\n\n\nCheck"
+    "text": "Reporing results with DCMs\n\n\n\nResults are typically reported as classifications on each of the assessed attributes\nNo scale score or ability continuum\nEach repspondent receives a profile of mastered skills\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nrespondent\n      morphosyntactic\n      cohesive\n      lexical\n    \n\n\n279\nCheck\n\nCheck\n\nCheck\n\n\n\n1554\nCheck\n\nXmark\n\nCheck\n\n\n\n2057\nXmark\n\nXmark\n\nXmark\n\n\n\n2390\nCheck\n\nXmark\n\nXmark\n\n\n\n2145\nCheck\n\nCheck\n\nXmark\n\n\n\n481\nXmark\n\nCheck\n\nCheck\n\n\n\n2833\nXmark\n\nXmark\n\nCheck\n\n\n\n2054\nXmark\n\nCheck\n\nCheck\n\n\n\n2400\nXmark\n\nXmark\n\nCheck\n\n\n\n551\nCheck\n\nCheck\n\nXmark\n\n\n\n245\nCheck\n\nCheck\n\nCheck\n\n\n\n1522\nCheck\n\nXmark\n\nCheck\n\n\n\n1003\nXmark\n\nXmark\n\nXmark\n\n\n\n2121\nCheck\n\nXmark\n\nCheck\n\n\n\n2459\nXmark\n\nCheck\n\nXmark\n\n\n\n492\nXmark\n\nCheck\n\nXmark\n\n\n\n1648\nXmark\n\nXmark\n\nCheck\n\n\n\n2825\nXmark\n\nXmark\n\nXmark\n\n\n\n311\nXmark\n\nCheck\n\nCheck\n\n\n\n1832\nXmark\n\nCheck\n\nXmark"
   },
   {
     "objectID": "index.html#probability-based-score-reporting",
@@ -75,6 +89,48 @@
     "title": "Open and transparent scoring with measr",
     "section": "Probability-based score reporting",
     "text": "Probability-based score reporting\n\n\n\nmeasr supports reporting the probability of mastery\nCan be used to communicate confidence in classifications (Bradshaw & Levy, 2019)\n\n\n\n\n\nmeasr_extract(ecpe_lcdm, \"attribute_prob\")\n#&gt; # A tibble: 2,922 × 4\n#&gt;    resp_id morphosyntactic cohesive lexical\n#&gt;    &lt;chr&gt;             &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;\n#&gt;  1 1               0.997      0.967  1.000 \n#&gt;  2 2               0.995      0.926  1.000 \n#&gt;  3 3               0.984      0.991  1.000 \n#&gt;  4 4               0.998      0.993  1.000 \n#&gt;  5 5               0.989      0.984  0.962 \n#&gt;  6 6               0.993      0.992  1.000 \n#&gt;  7 7               0.993      0.992  1.000 \n#&gt;  8 8               0.00478    0.488  0.967 \n#&gt;  9 9               0.954      0.988  0.999 \n#&gt; 10 10              0.659      0.112  0.0911\n#&gt; # ℹ 2,912 more rows"
+  },
+  {
+    "objectID": "index.html#evaluating-classifications",
+    "href": "index.html#evaluating-classifications",
+    "title": "Open and transparent scoring with measr",
+    "section": "Evaluating classifications",
+    "text": "Evaluating classifications\n\nRather than individual attribute classifications, we can evaluate across the population of respondents (Johnson & Sinharay, 2018)\n\nAccuracy: Probability the estimated classification is “correct”\nConsistency: Probability that two parallel forms result in the same classification (i.e., test-retest)\n\n\n\n\n\nmeasr_extract(ecpe_lcdm, \"classification_reliability\")\n#&gt; # A tibble: 3 × 3\n#&gt;   attribute       accuracy consistency\n#&gt;   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt;\n#&gt; 1 morphosyntactic    0.893       0.812\n#&gt; 2 cohesive           0.851       0.795\n#&gt; 3 lexical            0.919       0.853"
+  },
+  {
+    "objectID": "index.html#evaluating-probabilities",
+    "href": "index.html#evaluating-probabilities",
+    "title": "Open and transparent scoring with measr",
+    "section": "Evaluating probabilities",
+    "text": "Evaluating probabilities\n\nWe can also evaluate the mastery probabilities across respondents (Johnson & Sinharay, 2020)\n\nInformational: The proportion of uncertainty in an examinees mastery status that is eliminated by observing their item responses\n\n\n\n\n\nmeasr_extract(ecpe_lcdm, \"probability_reliability\")\n#&gt; # A tibble: 3 × 2\n#&gt;   attribute       informational\n#&gt;   &lt;chr&gt;                   &lt;dbl&gt;\n#&gt; 1 morphosyntactic         0.572\n#&gt; 2 cohesive                0.500\n#&gt; 3 lexical                 0.589"
+  },
+  {
+    "objectID": "index.html#evaluating-scoring-pipelines",
+    "href": "index.html#evaluating-scoring-pipelines",
+    "title": "Open and transparent scoring with measr",
+    "section": "Evaluating scoring pipelines",
+    "text": "Evaluating scoring pipelines\n\nScoring algorithms are often a “black box”\n\nmeasr is completely open source\n\nAvailable on GitHub: https://github.com/r-dcm/measr\n\nExamine exactly how measr estimates models and calculates evaluation metrics (e.g., model fit, reliability)\n\n\nUsers can also host their analysis scripts using measr, allowing other experts or the public to evaluate how the software was used"
+  },
+  {
+    "objectID": "index.html#learn-more-about-dcms",
+    "href": "index.html#learn-more-about-dcms",
+    "title": "Open and transparent scoring with measr",
+    "section": "Learn more about DCMs",
+    "text": "Learn more about DCMs"
+  },
+  {
+    "objectID": "index.html#learn-more-about-measr",
+    "href": "index.html#learn-more-about-measr",
+    "title": "Open and transparent scoring with measr",
+    "section": "Learn more about measr",
+    "text": "Learn more about measr\n\n\n\n\n\n  Case studies to get started\n  measr documentation\n  r-dcm/measr"
+  },
+  {
+    "objectID": "index.html#r-dcm.org",
+    "href": "index.html#r-dcm.org",
+    "title": "Open and transparent scoring with measr",
+    "section": "r-dcm.org",
+    "text": "r-dcm.org\n\n\n\nSlides\n\n\n\n\n\n\n\n\n\n\n  wjakethompson.com  wjakethompson@ku.edu  in/wjakethompson  @wjakethompson  @wjakethompson.com  @wjakethompson@fosstodon.org  @wjakethompson  @wjakethompson"
   },
   {
     "objectID": "index.html#acknowledgements",
